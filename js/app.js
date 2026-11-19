@@ -284,16 +284,18 @@
       if (btnDockCollapse) btnDockCollapse.textContent = '▴';
     }
     wantMusicPlaying = true;
-    ensureYouTubePlayer();
-    if (ytReady && ytPlayer) {
-      try {
-        ytPlayer.setVolume(75);
-        ytPlayer.playVideo();
-        setMusicUiState(true);
-      } catch {}
-    } else {
-      setMusicUiState(true);
-    }
+    setMusicUiState(true);
+
+    // Defer heavy YouTube player iframe script injection so envelope opening animation runs at full 60fps
+    setTimeout(() => {
+      ensureYouTubePlayer();
+      if (ytReady && ytPlayer) {
+        try {
+          ytPlayer.setVolume(75);
+          ytPlayer.playVideo();
+        } catch {}
+      }
+    }, 1100);
   }
 
   function toggleMusic() {
