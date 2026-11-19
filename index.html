@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy International Men's Day – 19.11 💙</title>
+  <meta name="description" content="Thiệp chúc mừng Ngày Quốc tế Nam giới 19/11 dành tặng người yêu — With all my love 💙" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Soft Watercolor & Starlight Canvas Backdrop -->
+  <div class="ambient-backdrop" aria-hidden="true">
+    <img src="assets/dreamy-bg.jpg" alt="" class="ambient-bg-img" />
+    <div class="ambient-glow ambient-glow--top"></div>
+    <div class="ambient-glow ambient-glow--bottom"></div>
+  </div>
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Miniature Decorative Hearts -->
+  <div class="floating-deco-hearts" aria-hidden="true">
+    <span class="mini-heart h1">♥</span>
+    <span class="mini-heart h2">♡</span>
+    <span class="mini-heart h3">♥</span>
+    <span class="mini-heart h4">♡</span>
+    <span class="mini-heart h5">♥</span>
+    <span class="mini-heart h6">♡</span>
+    <span class="mini-heart h7">♥</span>
+    <span class="mini-heart h8">♡</span>
+  </div>
+
+  <!-- =========================================================
+       STAGE 1: INTERACTIVE ENVELOPE (Click / Tap to Open)
+       ========================================================= -->
+  <main id="envelope-stage" class="stage stage--active" aria-label="Phong bì thư chúc mừng 19/11">
+    <div class="envelope-scene">
+      <div class="envelope-eyebrow">
+        <span class="silver-sparkle-icon" aria-hidden="true">❄</span>
+        <span>INTERNATIONAL MEN'S DAY • 19.11</span>
+        <span class="silver-sparkle-icon" aria-hidden="true">✦</span>
+      </div>
+
+      <button
+        type="button"
+        id="envelope-trigger"
+        class="envelope-wrapper"
+        aria-label="Nhấn để mở phong bì thiệp chúc mừng 19/11"
+      >
+        <!-- Soft aura beneath envelope -->
+        <div class="envelope-shadow"></div>
+
+        <div class="envelope-body">
+          <!-- Inner cream liner visible when flap opens -->
+          <div class="envelope-liner">
+            <div class="liner-pattern"></div>
+          </div>
+
+          <!-- Peeking letter inside -->
+          <div class="envelope-letter-peek">
+            <div class="peek-silver-border">
+              <span class="peek-date">19 • 11</span>
+              <p class="peek-title">Happy International Men's Day</p>
+              <span class="peek-heart">💙</span>
+            </div>
+          </div>
+
+          <!-- Front pocket folds -->
+          <div class="envelope-pocket-left"></div>
+          <div class="envelope-pocket-right"></div>
+          <div class="envelope-pocket-bottom">
+            <div class="envelope-front-label">
+              <span class="front-to-tag">Gửi người thương</span>
+              <span class="front-recipient" id="env-recipient-name">Anh Yêu</span>
+              <span class="front-mini-hearts" aria-hidden="true">♡ ♥ ♡</span>
+            </div>
+            <div class="envelope-postmark" aria-hidden="true">
+              <div class="postmark-ring">
+                <span>19 · 11</span>
+                <small>WITH LOVE</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 3D Flap -->
+          <div class="envelope-flap">
+            <div class="flap-silver-trim"></div>
+          </div>
+
+          <!-- Shimmering Silver Wax Seal -->
+          <div class="wax-seal" aria-hidden="true">
+            <div class="wax-seal-halo"></div>
+            <div class="wax-seal-disc">
+              <svg viewBox="0 0 64 64" class="wax-seal-svg" fill="none">
+                <circle cx="32" cy="32" r="24" stroke="rgba(255,255,255,0.55)" stroke-width="1.2" stroke-dasharray="2 3"/>
+                <path d="M32 45.5C32 45.5 18 36.2 18 25.8C18 21.4 21.4 18 25.6 18C28.4 18 30.8 19.6 32 21.9C33.2 19.6 35.6 18 38.4 18C42.6 18 46 21.4 46 25.8C46 36.2 32 45.5 32 45.5Z" fill="url(#sealHeartGrad)" stroke="rgba(255,255,255,0.75)" stroke-width="1.1"/>
+                <defs>
+                  <linearGradient id="sealHeartGrad" x1="18" y1="18" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="50%" stop-color="#D7E9F7"/>
+                    <stop offset="100%" stop-color="#8BBCE6"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <div class="envelope-cta">
+        <button type="button" id="envelope-cta-btn" class="silver-pill-btn">
+          <span class="btn-sparkle">✦</span>
+          <span>Nhấn vào phong bì để mở thiệp</span>
+          <span class="btn-heart">💙</span>
+        </button>
+        <p class="envelope-subhint">Có một món quà nhỏ và những kỷ niệm ngọt ngào đang chờ bên trong</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       STAGE 2: OPENED GREETING CARD
+       ========================================================= -->
+  <section id="card-stage" class="stage" aria-label="Nội dung thiệp chúc mừng 19/11" hidden>
+    <!-- Floating top utility bar -->
+    <nav class="top-toolbar" aria-label="Công cụ thiệp">
+      <button type="button" id="btn-close-envelope" class="tool-pill" title="Xem lại hiệu ứng mở phong bì">
+        <span>✉</span>
+        <span>Đóng phong bì</span>
+      </button>
+      <div class="tool-group">
+        <button type="button" id="btn-music-toggle" class="tool-pill" aria-pressed="false" title="Phát/tạm dừng bài hát Thế Giới Của Anh - Dangrangto">
+          <span id="music-icon">♫</span>
+          <span id="music-label">Thế Giới Của Anh</span>
+        </button>
+        <button type="button" id="btn-fireworks" class="tool-pill tool-pill--festive" title="Bắn pháo hoa lễ hội">
+          <span>🎆</span>
+          <span>Pháo hoa</span>
+        </button>
+        <button type="button" id="btn-snow-toggle" class="tool-pill" aria-pressed="true" title="Bật/tắt tuyết rơi Giáng sinh">
+          <span>❄</span>
+          <span>Tuyết rơi</span>
+        </button>
+        <button type="button" id="btn-scroll-qr" class="tool-pill tool-pill--accent" title="Xem mã QR để mở trên điện thoại">
+          <span>⊞</span>
+          <span>Mã QR</span>
+        </button>
+        <button type="button" id="btn-open-customize" class="tool-pill" title="Tùy chỉnh tên và lời chúc">
+          <span>✎</span>
+          <span>Tùy chỉnh</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Floating Mini Music Dock (Thế Giới Của Anh - Dangrangto) -->
+    <aside id="music-dock" class="music-dock" aria-label="Trình phát nhạc Thế Giới Của Anh - Dangrangto" hidden>
+      <div class="music-dock-head">
+        <div class="music-dock-meta">
+          <span class="music-eq" id="music-eq" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div>
+            <strong class="music-song-title">Thế Giới Của Anh</strong>
+            <span class="music-song-artist">Dangrangto (Prod. DONAL)</span>
+          </div>
+        </div>
+        <div class="music-dock-controls">
+          <button type="button" id="btn-dock-play" class="dock-icon-btn" title="Phát / Tạm dừng" aria-label="Phát hoặc tạm dừng nhạc">▶</button>
+          <button type="button" id="btn-dock-collapse" class="dock-icon-btn" title="Thu gọn / Mở rộng video" aria-label="Thu gọn hoặc mở rộng trình phát">▾</button>
+        </div>
+      </div>
+      <div class="music-video-wrap" id="music-video-wrap">
+        <div id="yt-player-mount"></div>
+      </div>
+    </aside>
+
+    <div class="card-container">
+      <!-- FESTIVE FAIRY LIGHTS & CHRISTMAS ORNAMENT GARLAND -->
+      <div class="festive-garland" aria-hidden="true">
+        <svg viewBox="0 0 900 92" class="garland-svg" preserveAspectRatio="none">
+          <path d="M0,14 Q150,52 300,16 T600,16 T900,14" fill="none" stroke="rgba(162, 184, 208, 0.75)" stroke-width="1.8" />
+          <path d="M0,18 Q150,58 300,20 T600,20 T900,18" fill="none" stroke="rgba(255, 255, 255, 0.85)" stroke-width="1" stroke-dasharray="4 5" />
+          <!-- Twinkling Fairy Bulbs -->
+          <circle cx="75" cy="30" r="5" class="fairy-bulb b1" />
+          <circle cx="150" cy="36" r="5.5" class="fairy-bulb b2" />
+          <circle cx="225" cy="30" r="5" class="fairy-bulb b3" />
+          <circle cx="300" cy="18" r="5.5" class="fairy-bulb b1" />
+          <circle cx="375" cy="6" r="5" class="fairy-bulb b2" />
+          <circle cx="450" cy="4" r="5.5" class="fairy-bulb b3" />
+          <circle cx="525" cy="6" r="5" class="fairy-bulb b1" />
+          <circle cx="600" cy="18" r="5.5" class="fairy-bulb b2" />
+          <circle cx="675" cy="30" r="5" class="fairy-bulb b3" />
+          <circle cx="750" cy="36" r="5.5" class="fairy-bulb b1" />
+          <circle cx="825" cy="30" r="5" class="fairy-bulb b2" />
+        </svg>
+        <!-- Swaying Baby-Blue & Silver Christmas Ornaments -->
+        <div class="garland-charm charm-1">
+          <span class="charm-thread"></span>
+          <span class="charm-bauble bauble-blue">❄</span>
+        </div>
+        <div class="garland-charm charm-2">
+          <span class="charm-thread"></span>
+          <span class="charm-bauble bauble-silver">★</span>
+        </div>
+        <div class="garland-charm charm-3">
+          <span class="charm-thread"></span>
+          <span class="charm-bauble bauble-cream">♥</span>
+        </div>
+        <div class="garland-charm charm-4">
+          <span class="charm-thread"></span>
+          <span class="charm-bauble bauble-blue">❄</span>
+        </div>
+      </div>
+
+      <!-- HERO GREETING SHEET -->
+      <article class="luxury-card reveal-block">
+        <div class="card-silver-frame">
+          <!-- Corner heart & snowflake filigree ornaments -->
+          <span class="corner-ornament corner-tl" aria-hidden="true">❄ ♡</span>
+          <span class="corner-ornament corner-tr" aria-hidden="true">♡ ❄</span>
+          <span class="corner-ornament corner-bl" aria-hidden="true">✦ ♡</span>
+          <span class="corner-ornament corner-br" aria-hidden="true">♡ ✦</span>
+
+          <header class="card-hero">
+            <div class="hero-date-pill">
+              <span class="dot-blue"></span>
+              <span>INTERNATIONAL MEN'S DAY • NOVEMBER 19</span>
+              <span class="dot-blue"></span>
+            </div>
+
+            <h1 class="hero-title">Happy International Men's Day – 19.11</h1>
+
+            <p class="hero-wish" id="card-wish-highlight">With all my love 💙</p>
+
+            <div class="silver-divider" aria-hidden="true">
+              <span class="line"></span>
+              <span class="divider-heart">♥</span>
+              <span class="line"></span>
+            </div>
+
+            <!-- Featured Couple Crayon Illustration -->
+            <figure class="hero-portrait-wrap">
+              <div class="portrait-silver-mat">
+                <div class="washi-tape washi-tape--left" aria-hidden="true"></div>
+                <div class="washi-tape washi-tape--right" aria-hidden="true"></div>
+                <img
+                  src="assets/photos/A35C9F7A-D91C-4E59-B4B3-1ABBEFF381E9.PNG"
+                  alt="Tranh minh họa đáng yêu của hai đứa mình"
+                  class="hero-portrait-img lightbox-trigger"
+                  data-caption="Bức họa nhỏ của hai đứa mình — luôn cười rạng rỡ bên nhau 💙"
+                />
+                <span class="portrait-glint" aria-hidden="true">✦</span>
+              </div>
+              <figcaption class="portrait-caption">
+                Dành tặng <strong id="card-recipient-display">anh yêu</strong> — người luôn khiến thế giới của em dịu dàng và ấm áp hơn mỗi ngày
+              </figcaption>
+            </figure>
+          </header>
+
+          <!-- LOVE LETTER -->
+          <div class="love-letter-box">
+            <p class="letter-salutation">Gửi <span id="letter-to-name">anh</span> thương mến,</p>
+            <div class="letter-body" id="letter-body-text">
+              <p>
+                Chúc mừng Ngày Quốc tế Nam giới 19/11! Cảm ơn anh vì đã luôn là điểm tựa bình yên, luôn kiên nhẫn, dịu dàng và mang lại thật nhiều tiếng cười cho em trong từng khoảnh khắc bên nhau.
+              </p>
+              <p>
+                Từ những buổi hẹn hò uống cà phê, những món ngon ăn cùng nhau cho tới những chuyến đi thật xa, chỉ cần đi cạnh anh thì ngày bình thường cũng trở thành kỷ niệm đẹp. Mong anh luôn khỏe mạnh, vững vàng, bình an và mãi giữ nụ cười hiền lành ấy nhé!
+              </p>
+            </div>
+            <div class="letter-signature">
+              <span class="sig-closing" id="letter-closing-phrase">With all my love 💙</span>
+              <span class="sig-from">— <span id="card-sender-display">Em của anh</span></span>
+            </div>
+
+            <div class="heart-burst-action">
+              <button type="button" id="btn-send-hearts" class="love-action-btn">
+                <span class="btn-heart-pulse">💙</span>
+                <span>Thả tim cho anh</span>
+                <span class="heart-counter" id="heart-counter">19</span>
+              </button>
+              <button type="button" id="btn-hero-fireworks" class="love-action-btn love-action-btn--festive">
+                <span>🎆</span>
+                <span>Bắn pháo hoa</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- WINTER & CHRISTMAS FESTIVE CUTE SHOWCASE -->
+      <section class="festive-showcase reveal-block" aria-label="Góc lễ hội và Giáng sinh ấm áp">
+        <div class="section-heading">
+          <span class="section-kicker">❄ FESTIVE & WINTER MAGIC ✦</span>
+          <h2>Không khí lễ hội & Giáng sinh ngọt ngào</h2>
+          <p class="section-sub">Chạm vào quả cầu tuyết để bắn pháo hoa lung linh nhé 🎆</p>
+        </div>
+
+        <div class="festive-grid">
+          <div class="festive-sticker-card">
+            <div class="sticker-badge-top" aria-hidden="true">❄ Mùa đông ấm áp</div>
+            <div class="sticker-medallion">
+              <img
+                src="assets/deco-bunnies.jpg"
+                alt="Hai chú thỏ mùa đông quàng khăn baby blue ôm hộp quà"
+                class="lightbox-trigger"
+                data-caption="Hai chú thỏ nhỏ gửi anh hộp quà 19.11 & lời chúc mùa lễ hội thật ấm áp ❄💙"
+              />
+            </div>
+            <h3>Quà nhỏ mùa đông</h3>
+            <p>Dù ngoài trời có se lạnh cuối năm, chỉ cần có anh là lúc nào cũng thấy ấm áp như ngồi cạnh ánh đèn Giáng sinh.</p>
+          </div>
+
+          <button type="button" id="btn-snowglobe-magic" class="festive-sticker-card festive-sticker-card--interactive">
+            <div class="sticker-badge-top" aria-hidden="true">🎆 Nhấn để bắn pháo hoa</div>
+            <div class="sticker-medallion sticker-medallion--glow">
+              <img
+                src="assets/deco-snowglobe.jpg"
+                alt="Quả cầu tuyết Giáng sinh với cây thông baby blue và pháo hoa lấp lánh"
+              />
+              <span class="globe-spark-tag" aria-hidden="true">✨ Chạm em đi!</span>
+            </div>
+            <h3>Quả cầu tuyết pháo hoa</h3>
+            <p>Chạm vào quả cầu tuyết để thắp sáng bầu trời bằng những chùm pháo hoa trái tim baby blue & ánh bạc nhé!</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3 INTERACTIVE KEEPSAKE PROMISE CARDS -->
+      <section class="keepsake-trio reveal-block" aria-label="Những điều nhắn gửi">
+        <div class="section-heading">
+          <span class="section-kicker">✦ LITTLE NOTES FOR YOU ✦</span>
+          <h2>Ba điều nhỏ xinh ngày 19.11</h2>
+        </div>
+
+        <div class="trio-grid">
+          <button type="button" class="mini-note-card" data-note="0">
+            <div class="mini-note-inner">
+              <div class="mini-note-front">
+                <span class="note-icon">♡</span>
+                <h3>Điều em quý nhất ở anh</h3>
+                <span class="note-tap">Chạm để mở</span>
+              </div>
+              <div class="mini-note-back">
+                <p>Là sự ấm áp, chân thành và cách anh luôn âm thầm quan tâm đến những điều nhỏ bé nhất của em.</p>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" class="mini-note-card" data-note="1">
+            <div class="mini-note-inner">
+              <div class="mini-note-front">
+                <span class="note-icon">✦</span>
+                <h3>Lời chúc 19.11</h3>
+                <span class="note-tap">Chạm để mở</span>
+              </div>
+              <div class="mini-note-back">
+                <p>Chúc anh mọi dự định đều hanh thông, tâm luôn an nhiên và mỗi ngày thức dậy đều thấy thật hạnh phúc.</p>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" class="mini-note-card" data-note="2">
+            <div class="mini-note-inner">
+              <div class="mini-note-front">
+                <span class="note-icon">💙</span>
+                <h3>Lời hẹn cùng nhau</h3>
+                <span class="note-tap">Chạm để mở</span>
+              </div>
+              <div class="mini-note-back">
+                <p>Cùng nhau đi thêm thật nhiều điểm đến mới, thử thêm nhiều quán quen và chụp thật nhiều ảnh kỷ niệm nhé!</p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- MEMORY GALLERY FROM GOOGLE DRIVE -->
+      <section class="memory-gallery reveal-block" aria-label="Album kỷ niệm của hai đứa mình">
+        <div class="section-heading">
+          <span class="section-kicker">✦ OUR SWEET MEMORIES ✦</span>
+          <h2>Khoảnh khắc đẹp bên nhau</h2>
+          <p class="section-sub">Nhấn vào từng tấm ảnh để phóng to kỷ niệm</p>
+        </div>
+
+        <div class="gallery-mosaic">
+          <!-- Row 1: 2 Landscapes -->
+          <figure class="polaroid polaroid--landscape polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/DSCF3448.JPG"
+                alt="Hai đứa mình đứng bên bờ kênh bình yên"
+                class="lightbox-trigger"
+                data-caption="Bên dòng kênh bình yên — chỉ cần có anh bên cạnh là đủ 💙"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Bên dòng kênh bình yên ✦</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--landscape polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1368.JPG"
+                alt="Hai đứa mình cười rạng rỡ trong photobooth rèm đỏ"
+                class="lightbox-trigger"
+                data-caption="Khoảnh khắc rạng rỡ trong photobooth rèm đỏ lấp lánh ♡"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Photobooth lấp lánh cùng anh ♡</figcaption>
+          </figure>
+
+          <!-- Row 2: 2 Portraits -->
+          <figure class="polaroid polaroid--portrait polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_5268.JPG"
+                alt="Anh hôn má em bên bó hoa bách hợp"
+                class="lightbox-trigger"
+                data-caption="Nụ hôn dịu dàng bên đóa hoa bách hợp — khoảnh khắc em thương nhất 💙"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Nụ hôn dịu dàng bên hoa 💙</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--portrait polaroid--contain polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1694.JPG"
+                alt="Bốn khung hình photobooth LERMER"
+                class="lightbox-trigger"
+                data-caption="Bốn khung hình LERMER — mỗi kiểu chụp đều ngập tràn tiếng cười ✦"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Bốn khung hình LERMER ✦</figcaption>
+          </figure>
+
+          <!-- Row 3: 2 Portraits -->
+          <figure class="polaroid polaroid--portrait polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1903.JPG"
+                alt="Bữa tối mừng sinh nhật ấm áp của hai đứa"
+                class="lightbox-trigger"
+                data-caption="Bữa tối thật ấm áp bên hoa hồng và ánh nến lung linh ♥"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Bữa tối ấm áp cùng nhau ♥</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--portrait polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/AEED984B-2E0B-42E2-AE7E-E12933ABC39A.JPG"
+                alt="Những buổi hẹn hò quán cà phê và biển xanh"
+                class="lightbox-trigger"
+                data-caption="Cà phê phin, trà vải và những buổi chiều bình dị bên nhau"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Những chiều cà phê dịu êm ☕</figcaption>
+          </figure>
+
+          <!-- Rows 4-6: 9 Squares (3 per row) -->
+          <figure class="polaroid polaroid--square polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1765.PNG"
+                alt="Chở nhau trên chiếc xe máy đỏ qua những cung đường"
+                class="lightbox-trigger"
+                data-caption="Đằng sau lưng anh là cung đường bình yên nhất 🛵"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Trên mọi cung đường cùng anh 🛵</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_2246.PNG"
+                alt="Hai đứa diện áo khoác da đôi thật ăn ý"
+                class="lightbox-trigger"
+                data-caption="Diện đồ đôi ăn ý trong buổi hẹn hò cuối tuần ♥"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Đồ đôi thật ăn ý ♥</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1783.PNG"
+                alt="Hai chú vịt tô tượng dễ thương"
+                class="lightbox-trigger"
+                data-caption="Buổi hẹn tô tượng — hai chú vịt nhỏ xinh của tụi mình 🎨"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Buổi hẹn tô tượng nhỏ xinh 🎨</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1717.PNG"
+                alt="Mirror selfie trước bức tường ảnh"
+                class="lightbox-trigger"
+                data-caption="Mirror selfie trước bức tường đầy ắp kỷ niệm ♡"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Selfie trước tường ảnh ♡</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1718.PNG"
+                alt="Cùng nhau đi ăn mì ấm bụng"
+                class="lightbox-trigger"
+                data-caption="Bát mì nóng hổi và nụ cười nháy mắt siêu cưng của anh 🍜"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Bữa mì ấm bụng cùng anh 🍜</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1950.PNG"
+                alt="Góc gương quen thuộc của hai đứa"
+                class="lightbox-trigger"
+                data-caption="Lại thêm một tấm ảnh soi gương lưu giữ ngày bên nhau ✦"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Góc gương quen thuộc ✦</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_2290.PNG"
+                alt="Hai đứa tạo dáng dễ thương tại quán ăn"
+                class="lightbox-trigger"
+                data-caption="Nụ cười tinh nghịch trong buổi hẹn nhẹ nhàng cuối tuần 💙"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Cuối tuần thật vui 💙</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-r">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1726.PNG"
+                alt="Dạo phố buổi tối dưới ánh đèn ấm áp"
+                class="lightbox-trigger"
+                data-caption="Buổi tối dạo phố lấp lánh ánh đèn dịu êm ✨"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Dạo phố tối lung linh ✨</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--square polaroid--tilt-l">
+            <div class="polaroid-pin" aria-hidden="true"></div>
+            <div class="polaroid-frame">
+              <img
+                src="assets/photos/IMG_1782.PNG"
+                alt="Hẹn hò quán cà phê quen"
+                class="lightbox-trigger"
+                data-caption="Góc quán quen nơi tụi mình trò chuyện chẳng biết chán ☕"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Góc quán quen cuối tuần ☕</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- QR CODE KEEPSAKE SECTION -->
+      <section id="qr-section" class="qr-card-section reveal-block" aria-label="Mã QR mở thiệp trên điện thoại">
+        <div class="qr-silver-box">
+          <div class="qr-box-left">
+            <span class="section-kicker">✦ SCAN TO OPEN ON PHONE ✦</span>
+            <h2>Mã QR Mở Thiệp Điện Tử</h2>
+            <p class="qr-desc">
+              Quét mã QR bằng camera điện thoại để mở trực tiếp tấm thiệp 19/11 này mọi lúc, mọi nơi — hoặc tải về làm thẻ quà tặng nhỏ xinh.
+            </p>
+
+            <div class="qr-url-control">
+              <label for="qr-url-input">Đường dẫn được mã hóa trong QR:</label>
+              <div class="qr-input-row">
+                <input
+                  type="url"
+                  id="qr-url-input"
+                  class="silver-input"
+                  spellcheck="false"
+                  placeholder="https://... hoặc http://192.168.x.x:8019"
+                />
+                <button type="button" id="btn-copy-link" class="silver-outline-btn">Sao chép</button>
+              </div>
+              <p class="qr-hint" id="qr-localhost-hint"></p>
+            </div>
+
+            <div class="qr-actions">
+              <button type="button" id="btn-download-qr" class="silver-pill-btn">
+                <span>⬇</span>
+                <span>Tải ảnh thẻ QR (.png)</span>
+              </button>
+              <button type="button" id="btn-customize-from-qr" class="silver-outline-btn">
+                <span>✎</span>
+                <span>Sửa lời chúc trong link</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="qr-box-right">
+            <div class="qr-display-frame">
+              <div class="qr-frame-header">
+                <span>19.11</span>
+                <span>💙</span>
+              </div>
+              <canvas id="qr-canvas" width="240" height="240" aria-label="Mã QR mở thiệp 19/11"></canvas>
+              <div class="qr-frame-footer">Happy Men's Day • With all my love</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="card-footer">
+        <p>Made with all my love 💙 • International Men's Day 19.11</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- PHOTO LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="modal" role="dialog" aria-modal="true" aria-label="Xem ảnh phóng to" hidden>
+    <div class="modal-backdrop" data-close-modal="lightbox"></div>
+    <div class="lightbox-content">
+      <button type="button" class="modal-close" data-close-modal="lightbox" aria-label="Đóng ảnh">✕</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- CUSTOMIZE CARD MODAL -->
+  <div id="customize-modal" class="modal" role="dialog" aria-modal="true" aria-label="Tùy chỉnh nội dung thiệp" hidden>
+    <div class="modal-backdrop" data-close-modal="customize"></div>
+    <div class="customize-panel">
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">✦ PERSONALIZE ✦</span>
+          <h3>Tùy chỉnh thiệp & cập nhật mã QR</h3>
+        </div>
+        <button type="button" class="modal-close modal-close--inline" data-close-modal="customize" aria-label="Đóng">✕</button>
+      </div>
+
+      <form id="customize-form" class="customize-form">
+        <div class="form-row">
+          <label for="input-to">Tên người nhận (trên phong bì & lời chào):</label>
+          <input type="text" id="input-to" class="silver-input" maxlength="40" placeholder="Ví dụ: Anh Yêu / Anh Nu" />
+        </div>
+        <div class="form-row">
+          <label for="input-from">Tên người gửi (ký tên cuối thư):</label>
+          <input type="text" id="input-from" class="silver-input" maxlength="40" placeholder="Ví dụ: Em của anh / Su" />
+        </div>
+        <div class="form-row">
+          <label for="input-wish">Lời chúc nổi bật:</label>
+          <input type="text" id="input-wish" class="silver-input" maxlength="80" value="With all my love 💙" />
+        </div>
+        <div class="form-row">
+          <label for="input-letter">Nội dung thư chúc mừng 19/11:</label>
+          <textarea id="input-letter" class="silver-input silver-textarea" rows="5"></textarea>
+        </div>
+
+        <div class="panel-actions">
+          <button type="button" id="btn-reset-card" class="silver-outline-btn">Khôi phục mặc định</button>
+          <button type="submit" class="silver-pill-btn">Lưu & Cập nhật mã QR 💙</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/qrcode.js"></script>
+  <script src="js/sparkles.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
